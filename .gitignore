@@ -1,0 +1,28 @@
+node_modules/
+
+# env variables
+.env
+
+# log
+*.log
+
+# hardhat
+artifacts/
+cache/
+typechain/
+typechain-types/
+deployments/
+
+flattened/
+
+# hardhat-dependency-compiler
+hardhat-dependency-compiler/
+
+# macOS
+.DS_Store
+
+# Coverage
+coverage
+coverage.json
+
+hints.md

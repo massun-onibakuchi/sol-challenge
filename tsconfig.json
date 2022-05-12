@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "ES2018",
+        "module": "commonjs",
+        "lib": ["es2018"],
+        "sourceMap": false,
+        "removeComments": false,
+        "downlevelIteration": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "strictNullChecks": false,
+        "strictFunctionTypes": false,
+        "strictBindCallApply": false,
+        "strictPropertyInitialization": false,
+        "noImplicitThis": false,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["./hardhat.config.ts", "./scripts", "./deploy", "./test"],
+    "exclude": [],
+    "files": ["./hardhat.config.ts"]
+}
