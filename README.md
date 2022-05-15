@@ -1,45 +1,43 @@
-# Smart Contracts Vulns Hacking
+# Sol Challenge
 
-## Getting Started
+CTF-Like Challenges of smart contracts
 
-### Setup
+## Installing
 
-`yarn`
+### Prerequisites
 
-To run testing on the forking main net, set the APIKEY and mnemonic.
-you need access to an archive node like the free ones from [Alchemy](https://alchemyapi.io/).
-```
-ALCHEMY_API_KEY=
-MNEMONIC=
-BLOCK_NUMBER=
-FORK=false
+- node
+- yarn
+
+## Setup
+
+Type on a terminal:
+
+```bash
+yarn
 ```
 
 ### Compiling
 
-`yarn compile`
-
-### Replaying hack
-
-The hacks are implemented as hardhat tests and can therefore be run as:
-
-`yarn hardhat test test/<name>.ts`
-
-### Debugging transactions with tenderly
-
-Set up `tenderly.yaml` in the repo root and follow [this article](http://blog.tenderly.co/level-up-your-smart-contract-productivity-using-hardhat-and-tenderly/).
-
-TLDR:
+Type:
 
 ```bash
-# run this in second terminal
-npx hardhat node
-# run test against local network
-npx hardhat test test/foo.js --network local
-# you want an actual tx id which means the tx may not fail in eth_estimateGas already
-# therefore hardcode some gas values
-# {value: ethers.utils.parseEther(`100`), gasLimit: `15000000`, gasPrice: ethers.utils.parseUnits(`200`, 9) }
-# the (failed) tx hash appears on the CLI after "eth_sendTransaction"
-# --force is required to skip gas estimation check in tenderly
-tenderly export <txHash> --force
+yarn compile
 ```
+
+### Testing & Running Challenges
+
+1. Copy this [template](./test/test.test.ts) to `./test/<*Challenge>.test.ts` file.
+2. Each `<*Challenge.sol>` file contains a description of the challenge.
+3. you solve challenges. write tests to prove the solution works correctly.
+
+Type:
+
+```bash
+# run test against local network
+yarn test test/<*Challenge>.test.ts
+```
+
+### About this challenges
+
+[Slide [ja]](https://docs.google.com/presentation/d/17FKtVC1S29WFnQjq92_SiqGIS6EGuslHsUfuNv-NlXU/edit?usp=sharing)
