@@ -29,9 +29,18 @@ yarn compile
 
 1. Copy this [template](./test/test.test.ts) to `./test/<*Challenge>.test.ts` file.
 2. Each `<*Challenge.sol>` file contains a description of the challenge.
-3. you solve challenges. write tests to prove the solution works correctly.
+3. Try to solve. Write tests to prove the solution works correctly.
 
-Type:
+#### Order of Challenges
+
+1. GuessTheNumberChallenge.sol
+2. WeirdVaultChallenge.sol
+3. OpenValutChallenge.sol
+4. NftSaleChallenge.sol
+5. BankChallenge.sol
+6. WrappedERC20Challenge.sol
+
+To run a test type:
 
 ```bash
 # run test against local network
