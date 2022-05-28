@@ -39,12 +39,27 @@ yarn compile
 4. NftSaleChallenge.sol
 5. BankChallenge.sol
 6. WrappedERC20Challenge.sol
+7. HodleChallenge.sol (required to fork mainnet state)
 
 To run a test type:
 
 ```bash
 # run test against local network
 yarn test test/<*Challenge>.test.ts
+```
+
+Some of challenges are required to be run on forked network. You need access to an archive node like the free ones from [Alchemy](https://alchemyapi.io/). Create `.env` file and paste the api key.
+
+Type:
+
+```bash
+cp .env.example .env
+```
+
+Then set the environment variable.
+
+```bash
+ALCHEMY_API_KEY=<Your Alchemy api key>
 ```
 
 ### About this challenges

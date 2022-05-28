@@ -4,7 +4,8 @@ pragma solidity 0.8.10;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 /// @notice Challenge Description
-/// You can mint awesome nfts. but the nft contract limits the number of nft you can buy at a time. Mint at least 100 nfts within one transaction.
+/// You can mint awesome nfts. The nft contract seems to limits the number of nft accounts can buy at a time.
+/// Mint at least 100 nfts within one transaction.
 interface INft {
     function mint(uint256 numberOfNfts) external payable;
 
