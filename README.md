@@ -39,7 +39,7 @@ yarn compile
 4. NftSaleChallenge.sol
 5. BankChallenge.sol
 6. WrappedERC20Challenge.sol
-7. HodleChallenge.sol (required to fork mainnet state)
+7. HodlChallenge.sol (state of the mainnet needs to be forked)
 
 To run a test type:
 
@@ -48,7 +48,7 @@ To run a test type:
 yarn test test/<*Challenge>.test.ts
 ```
 
-Some of challenges are required to be run on forked network. You need access to an archive node like the free ones from [Alchemy](https://alchemyapi.io/). Create `.env` file and paste the api key.
+Some of the challenges are required to be run on a forked network. You need access to an archive node like the free ones from [Alchemy](https://alchemyapi.io/). Create `.env` file and paste the API key.
 
 Type:
 

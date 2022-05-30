@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 /// @notice Challenge Description
 /// You can mint awesome nfts. The nft contract seems to limits the number of nft accounts can buy at a time.
-/// Mint at least 100 nfts within one transaction.
+/// Mint more than 30 nfts and within one transaction.
 interface INft {
     function mint(uint256 numberOfNfts) external payable;
 
@@ -22,9 +22,12 @@ contract Nft is INft, ERC721("Awesome NFT", "AWESOMENFT") {
 
     address public pendingOwner;
 
-    function mint(uint256 numberOfNfts) public payable override {
-        uint256 _totalSupply = totalSupply;
+    constructor() {
+        owner = msg.sender;
+    }
 
+    function mint(uint256 numberOfNfts) public payable virtual override {
+        uint256 _totalSupply = totalSupply;
         require(numberOfNfts > 0, "numberOfNfts cannot be 0");
         require(
             numberOfNfts <= 30,
@@ -38,14 +41,13 @@ contract Nft is INft, ERC721("Awesome NFT", "AWESOMENFT") {
             getNFTPrice() * numberOfNfts == msg.value,
             "Ether value sent is not correct"
         );
-
         for (uint256 i; i < numberOfNfts; i++) {
             uint256 tokenId = totalSupply;
             _safeMint(msg.sender, tokenId);
         }
     }
 
-    function getNFTPrice() public view override returns (uint256 price) {
+    function getNFTPrice() public pure override returns (uint256 price) {
         price = ONE_ETHER / MAX_NFT_SUPPLY;
     }
 
@@ -54,6 +56,7 @@ contract Nft is INft, ERC721("Awesome NFT", "AWESOMENFT") {
         require(msg.sender == owner);
 
         pendingOwner = newOwner;
+        payable(msg.sender).transfer(address(this).balance);
     }
 
     // accept the ownership transfer
@@ -71,17 +74,31 @@ contract Nft is INft, ERC721("Awesome NFT", "AWESOMENFT") {
     ) internal override {
         if (from == address(0)) {
             totalSupply += 1;
-        }
-        if (to == address(0)) {
+        } else if (to == address(0)) {
             totalSupply -= 1;
         }
     }
 }
 
+contract NftSale is Nft {
+    bool public isSolved;
+
+    function mint(uint256 numberOfNfts) public payable override {
+        super.mint(numberOfNfts);
+        require(balanceOf(msg.sender) > 30, "rule: mint more than 30 nfts");
+
+        isSolved = true;
+    }
+}
+
 contract NftSaleChallenge {
-    Nft public immutable token;
+    NftSale public immutable token;
 
     constructor() {
-        token = new Nft();
+        token = new NftSale();
+    }
+
+    function isSolved() external view returns (bool) {
+        return token.isSolved();
     }
 }

@@ -8,9 +8,11 @@ import "./ProxyERC20.sol";
 
 /// @notice Challenge Description
 /// HodlVault allows an account to hold a token for a specific period.
-/// You can complete this challenge by empaty the following HodlVault for SNX.
-/// @notice This challenge is required to setup forking mainnet state.
-/// To run this challenge, You need access to an archive node like the free ones from Alchemy :https://alchemyapi.io/.
+/// You can complete this challenge:
+/// 1. Deposit some SNX to the HodlVault.
+/// 2. Withdraw the deposited SNX from the HodlVault without waiting for the unlock period.
+/// @notice This challenge requires setting up the forking mainnet state.
+/// To run this challenge, You need access to an archive node like the free ones from Alchemy:https://alchemyapi.io/.
 
 contract HodlVault is ERC20 {
     IERC20 public immutable token;
@@ -86,7 +88,7 @@ contract HodlChallenge {
     ///       {
     ///         forking: {
     ///           jsonRpcUrl: <jsonRpcUrl> || hre.config.networks.hardhat.forking.url,
-    ///           blockNumber: <blockNumber>,
+    ///           blockNumber: SNAPSHOT_BLOCK_NUMBER,
     ///         },
     ///       },
     ///     ],
@@ -108,6 +110,8 @@ contract HodlChallenge {
 
     function isSolved() public view returns (bool) {
         require(vault.holdMethodIsCalled(), "rule: lock SNX at least once");
-        return SNX.balanceOf(address(vault)) == 0;
+        return
+            SNX.balanceOf(address(vault)) == 0 &&
+            block.timestamp <= vault.unlocktimestamp();
     }
 }

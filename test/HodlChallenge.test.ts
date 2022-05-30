@@ -22,14 +22,14 @@ describe('HodlChallenge', async function () {
     await ethers.provider.send('hardhat_setBalance', [
       player.address,
       '0xffffffffffffffffffffff',
-    ])
+    ]) // fund ETH
 
     snx = (await ethers.getContractAt('ProxyERC20', SNX)) as ProxyERC20
     challenge = await (
       await ethers.getContractFactory('HodlChallenge')
     ).deploy()
 
-    expect(await snx.name()).to.be.not.equal('') // check
+    expect(await snx.name()).to.be.equal('Synthetix Network Token') // check
   })
   after(async function () {
     await resetFork(BLOCK_NUMBER, PROVIDER_URL)
@@ -39,15 +39,15 @@ describe('HodlChallenge', async function () {
       await challenge.vault()
     ) as HodlVault
 
-    // deposit SNX at least once
+    // deposit SNX
     const amotToDeposit = await snx.balanceOf(SNX_WHALE)
     await snx.connect(player).approve(vault.address, amotToDeposit)
     await vault.connect(player).hold(amotToDeposit)
-    expect(await vault.holdMethodIsCalled()).to.be.true // should be true
 
     // TODO: Your solution below
 
     // check
+    expect(await vault.holdMethodIsCalled()).to.be.true
     expect(await challenge.isSolved()).to.be.true
   })
 })
