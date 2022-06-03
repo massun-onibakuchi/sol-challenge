@@ -8,7 +8,7 @@ describe('OpenVaultChallenge', async function () {
   let player: SignerWithAddress
   let challenge: OpenVaultChallenge
 
-  before(async function () {
+  beforeEach(async function () {
     ;[player] = await ethers.getSigners()
 
     const Challenge = await ethers.getContractFactory('OpenVaultChallenge')

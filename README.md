@@ -25,11 +25,11 @@ Type:
 yarn compile
 ```
 
-### Testing & Running Challenges
+### Running Challenges
 
-1. Copy this [template](./test/test.test.ts) to `./test/<*Challenge>.test.ts` file.
+1. Copy this [template](./test/template.test.ts) to `./test/<*Challenge>.test.ts` file.
 2. Each `<*Challenge.sol>` file contains a description of the challenge.
-3. Try to solve. Write tests to prove the solution works correctly.
+3. Make `isSovled()` returns `true`. Write tests to prove the solution works correctly.
 
 #### Order of Challenges
 
@@ -40,6 +40,8 @@ yarn compile
 5. BankChallenge.sol
 6. WrappedERC20Challenge.sol
 7. HodlChallenge.sol (state of the mainnet needs to be forked)
+
+### Testing
 
 To run a test type:
 

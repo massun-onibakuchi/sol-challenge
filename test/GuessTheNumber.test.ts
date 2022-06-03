@@ -7,7 +7,7 @@ describe('GuessTheNumberChallenge', async function () {
   let player: SignerWithAddress
   let challenge: GuessTheNumberChallenge
 
-  before(async function () {
+  beforeEach(async function () {
     ;[player] = await ethers.getSigners()
 
     const Challenge = await ethers.getContractFactory('GuessTheNumberChallenge')

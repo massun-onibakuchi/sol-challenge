@@ -15,7 +15,7 @@ describe('HodlChallenge', async function () {
   let player: SignerWithAddress
   let snx: ProxyERC20
   let challenge
-  before(async function () {
+  beforeEach(async function () {
     await resetFork(BLOCK_NUMBER, PROVIDER_URL) // fork state at BLOCK_NUMBER
     player = (await getImpersonatedSigner(SNX_WHALE)) as any
 
@@ -31,7 +31,7 @@ describe('HodlChallenge', async function () {
 
     expect(await snx.name()).to.be.equal('Synthetix Network Token') // check
   })
-  after(async function () {
+  afterEach(async function () {
     await resetFork(BLOCK_NUMBER, PROVIDER_URL)
   })
   it('Attack', async function () {

@@ -8,7 +8,7 @@ describe('WrappedERC20Challenge', async function () {
   let player: SignerWithAddress
   let challenge: WrappedERC20Challenge
 
-  before(async function () {
+  beforeEach(async function () {
     ;[player] = await ethers.getSigners()
 
     const Challenge = await ethers.getContractFactory('WrappedERC20Challenge')
