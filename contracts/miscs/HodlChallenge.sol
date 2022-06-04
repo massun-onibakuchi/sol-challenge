@@ -8,9 +8,10 @@ import "./ProxyERC20.sol";
 
 /// @notice Challenge Description
 /// HodlVault allows an account to hold a token for a specific period.
+/// You start with some SNX in balance.
 /// You can complete this challenge:
 /// 1. Deposit some SNX to the HodlVault.
-/// 2. Withdraw the deposited SNX from the HodlVault without waiting for the unlock period.
+/// 2. Let `isSolved()` method return true.
 /// @notice This challenge requires setting up the forking mainnet state.
 /// To run this challenge, You need access to an archive node like the free ones from Alchemy:https://alchemyapi.io/.
 

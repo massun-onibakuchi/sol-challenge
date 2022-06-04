@@ -17,6 +17,7 @@ describe('HodlChallenge', async function () {
   let challenge
   beforeEach(async function () {
     await resetFork(BLOCK_NUMBER, PROVIDER_URL) // fork state at BLOCK_NUMBER
+    // You start with some SNX in balance.
     player = (await getImpersonatedSigner(SNX_WHALE)) as any
 
     await ethers.provider.send('hardhat_setBalance', [

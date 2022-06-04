@@ -64,6 +64,8 @@ Then set the environment variable.
 ALCHEMY_API_KEY=<Your Alchemy api key>
 ```
 
-### About this challenges
+## Solutions
 
-[Slide [ja]](https://docs.google.com/presentation/d/17FKtVC1S29WFnQjq92_SiqGIS6EGuslHsUfuNv-NlXU/edit?usp=sharing)
+[Slide - Solutions[en]](https://docs.google.com/presentation/d/1Pfsjh3JldWZWph08N7GzUWTo1D-5ZScUYOLwxIPjG3M/edit#slide=id.ge56a954bf3_0_152)
+
+[Slide - introduction[ja]](https://docs.google.com/presentation/d/17FKtVC1S29WFnQjq92_SiqGIS6EGuslHsUfuNv-NlXU/edit?usp=sharing)
