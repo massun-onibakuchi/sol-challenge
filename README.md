@@ -40,6 +40,7 @@ yarn compile
 5. BankChallenge.sol
 6. WrappedERC20Challenge.sol
 7. HodlChallenge.sol (state of the mainnet needs to be forked)
+8. GuessTheHashChallenge.sol
 
 ### Testing
 
