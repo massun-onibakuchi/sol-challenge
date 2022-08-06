@@ -1,17 +1,17 @@
 import { ethers } from 'hardhat'
 import { expect } from 'chai'
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers'
-import { GuessTheHashChallenge } from '../typechain-types'
+import { GuessTheNumberChallenge2 } from '../typechain-types'
 
-describe('GuessTheHashChallenge', async function () {
+describe('GuessTheNumberChallenge2', async function () {
   let player: SignerWithAddress
-  let challenge: GuessTheHashChallenge
+  let challenge: GuessTheNumberChallenge2
 
   beforeEach(async function () {
     ;[player] = await ethers.getSigners()
 
-    const Challenge = await ethers.getContractFactory('GuessTheHashChallenge')
-    challenge = (await Challenge.deploy()) as GuessTheHashChallenge
+    const Challenge = await ethers.getContractFactory('GuessTheNumberChallenge2')
+    challenge = (await Challenge.deploy()) as GuessTheNumberChallenge2
   })
 
   it('Attack', async function () {
